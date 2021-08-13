@@ -1,6 +1,0 @@
-endpoints\capital\CapitalHappyPathIT.class
-endpoints\capital\CapitalUnhappyPathIT.class
-util\IntegrationTests.class
-util\Environment.class
-util\TestUtil.class
-util\ExpectedResponse.class
