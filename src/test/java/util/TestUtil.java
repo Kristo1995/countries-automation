@@ -22,8 +22,8 @@ public class TestUtil {
 
         loopThroughPathAndAddEnvironments(environmentsToMerge, pathLevels);
 
-        for (Environment e : environmentsToMerge) {
-            environment.mergeIn(e);
+        for (Environment environmentToMerge : environmentsToMerge) {
+            environment.mergeIn(environmentToMerge);
         }
 
         return environment;
@@ -37,10 +37,8 @@ public class TestUtil {
 
         final ExpectedResponse expectedResponse;
 
-        final String expectedResponseFile = "expected_response.json";
-
         try {
-            FileReader expectedResponseJSON = new FileReader(path + expectedResponseFile);
+            FileReader expectedResponseJSON = new FileReader(path + "expected_response.json");
 
             expectedResponse = new Gson().fromJson(expectedResponseJSON, ExpectedResponse.class);
         }catch (IOException e){
@@ -66,11 +64,11 @@ public class TestUtil {
 
         StringBuilder pathInUse = new StringBuilder();
 
+        final String envFile = "env.json";
+
         for (String pathLevel : pathLevels){
 
             pathInUse.append(pathLevel).append("/");
-
-            final String envFile = "env.json";
 
             try {
                 FileReader envJSON = new FileReader(pathInUse + envFile);
